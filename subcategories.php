@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 
 $db = new SQLite3('./db/module.db');
 
-$query = $db->query('SELECT * FROM categories WHERE parent_id IS NULL');
+$query = $db->query('SELECT * FROM categories WHERE parent_id IS NOT NULL');
 
 $categories = array();
 

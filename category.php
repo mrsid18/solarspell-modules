@@ -1,5 +1,5 @@
 <?php
-
+// Gets files by category/subcategory id
 header("Access-Control-Allow-Origin: *");
 
 $db = new SQLite3('./db/module.db');

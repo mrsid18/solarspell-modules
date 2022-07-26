@@ -1,6 +1,6 @@
 <?php
-
-header("Access-Control-Allow-Origin: *")
+// Gets all files
+header("Access-Control-Allow-Origin: *");
 
 $db = new SQLite3('./db/module.db');
 
@@ -9,11 +9,12 @@ $query = $db->query('SELECT * FROM files join categories on files.category_id = 
 $files = array();
 
 while ($row = $query->fetchArray()) {
+    $file_path = $row["path"].'/'.$row[1];
     $files[] = [
         'id' => $row[0],
         'name' => $row[1],
         'size' => $row["size"],
-        'file_path'=> $row[5].'/'.$row[1],
+        'file_path'=> $file_path,
         'category_id' => $row["category_id"],
         'category_name' => $row[5],
     ];
